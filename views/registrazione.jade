@@ -1,0 +1,80 @@
+extends layout 
+block content
+  .main
+    .col-sm-4
+    .col-sm-4(style='padding-top: 60px')
+      div
+        h1(style='text-align: center;') Registrazione
+        hr
+      .form-group
+        p
+        p
+        input.form-control#Nick(type='text', value='', placeholder='Nickname')
+        p
+        .col-sm-6(style='padding: 0px; padding-bottom: 10px;')
+          input.form-control#Nome(type='text', value='', placeholder='Nome')
+        .col-sm-6(style='padding: 0px')
+          input.form-control#Cognome(type='text', value='', placeholder='Cognome')
+        p
+        input.form-control#Email(type='text', value='', placeholder='Email')
+        p
+        input.form-control#Pass(type='password', value='', placeholder='Password')
+        p
+        input.form-control#ConfPass(type='password', value='', placeholder='Conferma password')
+        p
+        div
+          .col-sm-2
+          .col-sm-8(style='padding-top: 20px')
+            button.btn.btn-block.btn-lg.btn-round.btn-default#invia(href='') Conferma
+
+script(type='text/javascript').
+  $('.btn-tooltip').tooltip();
+  $('.label-tooltip').tooltip();
+  $('.pick-class-label').click(function(){
+  var new_class = $(this).attr('new-class');
+  var old_class = $('#display-buttons').attr('data-class');
+  var display_div = $('#display-buttons');
+  if(display_div.length) {
+  var display_buttons = display_div.find('.btn');
+  display_buttons.removeClass(old_class);
+  display_buttons.addClass(new_class);
+  display_div.attr('data-class', new_class);
+  }
+  });
+  $( "#slider-range" ).slider({
+  range: true,
+  min: 0,
+  max: 500,
+  values: [ 75, 300 ],
+  });
+  $( "#slider-default" ).slider({
+  value: 70,
+  orientation: "horizontal",
+  range: "min",
+  animate: true
+  });
+  $('.carousel').carousel({
+  interval: 4000
+  });
+script.
+  jQuery(function($) {
+    var socket = io();
+
+    $('#invia').click(function(){
+
+      socket.emit('registrazione', {
+          nome: $('#Nome').val(),
+          cognome: $('#Cognome').val(),
+          email: $('#Email').val(),
+          username: $('#Nick').val(),
+          password: $('#Pass').val()
+          
+        
+      });
+    });
+    socket.on('risultati',function(data){
+      alert(data.results);
+
+    });
+
+  });
