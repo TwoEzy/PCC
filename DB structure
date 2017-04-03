@@ -1,0 +1,110 @@
+UTENTI
+{
+  ObjectID
+  nickname
+  password
+  nome
+  cognome
+  email
+  dn
+  builds: [ObjectID]
+}
+
+BUILDS
+{
+  ObjectID
+  nome
+  commento
+  owners [ObjectID]
+  cpu
+  dissipatore
+  mobo
+  ram
+  gpu
+  storage
+  case
+  ali
+}
+
+CHAT{
+  ObjectID
+  utenti [{0: ObjectID},{1: ObjectID}]
+  messaggi [] //limited
+}
+
+CPU{
+  ObjectID
+  produttore
+  socket
+  famiglia
+  modello
+  ghz
+  cores
+  tdp
+  prezzo
+  ip
+}
+
+DISSIPATORE{
+  ObjectID
+  produttore
+  modello
+  socket
+  prezzo
+  radiatore
+}
+
+MOBO{
+  ObjectID
+  produttore
+  socket
+  dim
+  chipset
+  prezzo
+}
+
+RAM{
+  ObjectID
+  produttore
+  modello
+  velocita
+  gb
+  prezzo
+  ip
+}
+
+STORAGE{
+  ObjectID
+  produttore
+  modello
+  tipo
+  prezzo
+  gb
+  ssd
+  ip
+}
+
+GPU{
+  OID
+  produttore
+  costruttore
+  gpu
+  ram
+  prezzo
+  ip
+}
+
+CASE{
+  OID
+  produttore
+  type
+  prezzo
+}
+
+ALI{
+  OID
+  produttore
+  w
+  mod
+  eff
+}
