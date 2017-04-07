@@ -8,18 +8,17 @@ var assert = require('assert');
 var dbName = 'PCC';
 
 var url = 'mongodb://localhost:27017/'+ dbName;
+MongoClient.connect(url, function(err, db) {
+  assert.equal(null, err);
+  console.log("Connected correctly to server");
 
-io.on('connection', function(socket){
-    MongoClient.connect(url, function(err, db) {
-        assert.equal(null, err);
-        console.log("Connected correctly to server");
-
-        socket.on('registrazione', function (data) {
-            insertDocuments(db,'utenti',[{nome: data.nome, cognome: data.cognome,username:data.username,password:data.password,email:data.email,}],function(){})
-        });
-
-
+  io.on('connection', function(socket){
+      
+    socket.on('registrazione', function (data) {
+      console.log(data)
+        insertDocuments(db,'utenti',[{nome: data.nome, cognome: data.cognome,username:data.username,password:data.password,email:data.email,}], (data)=>{})
     });
+  });
 });
 
 
