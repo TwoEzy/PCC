@@ -78,12 +78,6 @@ app.use(function(err, req, res, next) {
   res.render('error');
 });
 
-//mongodb server activation
-
-exec('mongod --dbpath=./db', function(err, stdout, stderr){
-  console.log(err);
-  console.log(stderr);
-});
 
 //this passes express() to bin/www && socketio/socket.js
 module.exports = app;
