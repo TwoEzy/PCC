@@ -2,7 +2,9 @@ jQuery(function($) {
   var socket = io();
 
   $('#sub').click(function(){
-
+    socket.on('risultato',function(data){
+      alert(data.messaggio);
+    });
     socket.emit('registrazione', {
         nome: $('#nome').val(),
         cognome: $('#cognome').val(),
@@ -10,8 +12,5 @@ jQuery(function($) {
         username: $('#nick').val(),
         password: $('#pw').val()
     });
-  });
-  socket.on('risultati',function(data){
-    alert(data.results);
   });
 });
