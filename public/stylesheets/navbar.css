@@ -10,6 +10,16 @@
     padding-top: 15px;
     padding-left: 60px;
 }
-#log{
+#log1{
     padding-top: 3px;
+}
+#log{
+    padding-top: 9px;
+}
+#fgpw{
+    font-size: 11px;
+}
+#navlog{
+    margin-top: 8px;
+    margin-bottom: 16px;
 }

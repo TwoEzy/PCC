@@ -19,7 +19,7 @@
     <link href="stylesheets/bootstrap3/css/font-awesome.css" rel="stylesheet">
     <link href='http://fonts.googleapis.com/css?family=Grand+Hotel' rel='stylesheet' type='text/css'>
 
-    <link href="stylesheets/c.css" rel="stylesheet" /> 
+    <link href="stylesheets/navbar.css" rel="stylesheet" /> 
 </head>
 <body>
 
@@ -47,13 +47,16 @@
                     <div class="brand" id="brand">Login</div>
                   </a>
                 <ul class="dropdown-menu">
-                  <li><div class="col-sm-12 input-group-sm" id="log"><input type="text" value="" placeholder="Nickname" class="form-control" id='usr'></div></li>
-                  <li><div class="col-sm-12 input-group-sm" id="log"><input type="text" value="" placeholder="Password" class="form-control" id='pw'></div></li>
-                  <li><a href="#gsdk">Something else here</a></li>
+                  <li><div class="col-sm-12 input-group-sm" id="log"><input type="text" value="" placeholder="Nickname" class="form-control" id='navusr'></div></li>
+                  <li><div class="col-sm-12 input-group-sm" id="log1"><input type="text" value="" placeholder="Password" class="form-control" id='navpw'></div></li>
                   <li class="divider"></li>
-                  <li><a href="#gsdk">Separated link</a></li>
-                  <li class="divider"></li>
-                  <li><a href="#gsdk">One more separated link</a></li>
+                  <li>
+                    <div class="col-sm-6">
+                      <a href="" id="fgpw">Forgotten password?</a>
+                    </div>
+                    <div class="col-sm-6">
+                    <button href="" class="btn btn-xs btn-primary btn-fill" id="navlog">Login</button></div>
+                  </li>
                 </ul>
               </li>
             </ul>
@@ -153,10 +156,10 @@
 	$('.carousel').carousel({
       interval: 4000
   });
-  $('#usr').click(function(e) {
+  $('#navusr').click(function(e) {
     e.stopPropagation();
   });
-  $('#pw').click(function(e) {
+  $('#navpw').click(function(e) {
     e.stopPropagation();
   });
 </script>
